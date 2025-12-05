@@ -36,7 +36,7 @@ export const Capabilities: CollectionConfig = {
               label: 'Hero Section',
               fields: [
                 { name: 'headline', type: 'text', required: true },
-                { name: 'subheadline', type: 'textarea' },
+                { name: 'subheadline', type: 'richText' },
                 { name: 'heroImage', type: 'upload', relationTo: 'media' },
                 {
                   type: 'row',
@@ -63,7 +63,7 @@ export const Capabilities: CollectionConfig = {
                       type: 'array',
                       fields: [
                         { name: 'title', type: 'text' },
-                        { name: 'description', type: 'textarea' },
+                        { name: 'description', type: 'richText' },
                         { name: 'icon', type: 'text' } // Emoji or Icon Name
                       ]
                     }
@@ -80,7 +80,7 @@ export const Capabilities: CollectionConfig = {
                       fields: [
                         { name: 'stepNumber', type: 'text' }, // e.g., "01"
                         { name: 'title', type: 'text' },
-                        { name: 'description', type: 'textarea' },
+                        { name: 'description', type: 'richText' },
                         { name: 'stepImage', type: 'upload', relationTo: 'media' }
                       ]
                     }
@@ -96,7 +96,7 @@ export const Capabilities: CollectionConfig = {
                       type: 'array',
                       fields: [
                         { name: 'title', type: 'text' },
-                        { name: 'description', type: 'textarea' },
+                        { name: 'description', type: 'richText' },
                         { name: 'screenshot', type: 'upload', relationTo: 'media' },
                         {
                           name: 'benefits',
@@ -117,8 +117,8 @@ export const Capabilities: CollectionConfig = {
                       type: 'array',
                       fields: [
                         { name: 'persona', type: 'text' }, // e.g., "Growth Teams"
-                        { name: 'scenario', type: 'textarea' },
-                        { name: 'outcome', type: 'textarea' },
+                        { name: 'scenario', type: 'richText' },
+                        { name: 'outcome', type: 'richText' },
                         { name: 'image', type: 'upload', relationTo: 'media' }
                       ]
                     }
@@ -129,7 +129,7 @@ export const Capabilities: CollectionConfig = {
                   slug: 'comparisonTable',
                   fields: [
                     { name: 'headline', type: 'text' },
-                    { name: 'subheadline', type: 'textarea' },
+                    { name: 'subheadline', type: 'richText' },
                     {
                       name: 'rows',
                       type: 'array',
@@ -150,7 +150,7 @@ export const Capabilities: CollectionConfig = {
                       name: 'quotes',
                       type: 'array',
                       fields: [
-                        { name: 'quote', type: 'textarea' },
+                        { name: 'quote', type: 'richText' },
                         { name: 'author', type: 'text' },
                         { name: 'authorTitle', type: 'text' },
                         { name: 'avatar', type: 'upload', relationTo: 'media' },
@@ -163,7 +163,7 @@ export const Capabilities: CollectionConfig = {
                   slug: 'ctaSection',
                   fields: [
                     { name: 'headline', type: 'text' },
-                    { name: 'subheadline', type: 'textarea' },
+                    { name: 'subheadline', type: 'richText' },
                     {
                       type: 'row',
                       fields: [
@@ -191,7 +191,7 @@ export const Capabilities: CollectionConfig = {
           label: 'SEO',
           fields: [
             { name: 'seoTitle', type: 'text' },
-            { name: 'seoDescription', type: 'textarea' },
+            { name: 'seoDescription', type: 'richText' },
             { name: 'ogImage', type: 'upload', relationTo: 'media' },
           ]
         }

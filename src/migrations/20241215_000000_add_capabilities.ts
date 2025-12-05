@@ -1,6 +1,11 @@
 import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 
 export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
+  // Use PayloadCMS's migration system to generate the schema
+  // This will create all necessary tables for the Capabilities collection
+  await payload.db.migrate()
+  
+  // Then add the capabilities_id column to payload_locked_documents_rels
   await payload.db.drizzle.execute(sql`
     -- Add capabilities_id column to payload_locked_documents_rels if it doesn't exist
     DO $$ BEGIN
@@ -9,11 +14,9 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
       WHEN duplicate_column THEN null;
     END $$;
     
-    -- Add foreign key constraint if capabilities table exists
+    -- Add foreign key constraint
     DO $$ BEGIN
-      IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'capabilities') THEN
-        ALTER TABLE "payload_locked_documents_rels" ADD CONSTRAINT "payload_locked_documents_rels_capabilities_fk" FOREIGN KEY ("capabilities_id") REFERENCES "public"."capabilities"("id") ON DELETE cascade ON UPDATE no action;
-      END IF;
+      ALTER TABLE "payload_locked_documents_rels" ADD CONSTRAINT "payload_locked_documents_rels_capabilities_fk" FOREIGN KEY ("capabilities_id") REFERENCES "public"."capabilities"("id") ON DELETE cascade ON UPDATE no action;
     EXCEPTION
       WHEN duplicate_object THEN null;
     END $$;
