@@ -41,8 +41,8 @@ export const Capabilities: CollectionConfig = {
                 {
                   type: 'row',
                   fields: [
-                    { name: 'primaryCtaText', type: 'text', width: '50%' },
-                    { name: 'primaryCtaLink', type: 'text', width: '50%' },
+                    { name: 'primaryCtaText', type: 'text', admin: { width: '50%' } },
+                    { name: 'primaryCtaLink', type: 'text', admin: { width: '50%' } },
                   ]
                 }
               ]
@@ -167,8 +167,8 @@ export const Capabilities: CollectionConfig = {
                     {
                       type: 'row',
                       fields: [
-                        { name: 'primaryCtaText', type: 'text', width: '50%' },
-                        { name: 'primaryCtaLink', type: 'text', width: '50%' },
+                        { name: 'primaryCtaText', type: 'text', admin: { width: '50%' } },
+                        { name: 'primaryCtaLink', type: 'text', admin: { width: '50%' } },
                       ]
                     }
                   ]
