@@ -72,7 +72,7 @@ export default buildConfig({
   cors: [
     getServerSideURL(),
     process.env.NEXT_PUBLIC_ADMIN_URL,
-  ].filter(Boolean),
+  ].filter(Boolean) as string[],
   globals: [Header, Footer],
   plugins: [
     ...plugins,
